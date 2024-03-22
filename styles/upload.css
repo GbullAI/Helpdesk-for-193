@@ -1,0 +1,26 @@
+﻿#example {
+    text-align: center;
+}
+ 
+    #example .demo-container {
+        display: inline-block;
+        text-align: left;
+    }
+ 
+/* Customize uploaded file name */
+html .RadUpload .ruUploadProgress {
+    display: inline-block;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+}
+ 
+html .demo-container .ruFakeInput {
+    width: 210px;
+}
+ 
+html .RadUploadProgressArea {
+    margin-top: 10px;
+}

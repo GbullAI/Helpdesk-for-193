@@ -1,0 +1,193 @@
+﻿/*normalize*/
+html, 
+body, 
+form {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: normal 13px "Segoe UI", Arial, sans-serif;
+    color: #555555;
+    background-color: #eee;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+}
+a {
+  background: transparent;
+}
+
+/*div.divheader {
+    height: 60px; 
+    background-image: url('../images/banner.png');  
+    background-color: white;  
+    background-repeat: no-repeat; 
+    text-align: right; 
+    width: 100%;   
+}*/
+
+div.divheader {
+    height: 60px;
+    background-image: url('../images/banner.png');
+    background-color: white;
+    background-repeat: no-repeat;
+    text-align: right;
+    width: 100%;
+}
+
+
+.Row
+{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 1px;
+}
+
+.Column100
+{
+    display: table-cell;
+    width: 100%;
+}
+
+
+.Column35
+{
+    display: table-cell;
+    width: 32%;
+}
+
+.Column5
+{
+    display: table-cell;
+    width: 3%;
+}
+
+
+.Column60
+{
+    display: table-cell;
+    width: 65%;
+}
+
+.Column50
+{
+    display: table-cell;
+    width: 50%;
+}
+
+.Column33
+{
+    display: table-cell;
+    width: 33%;
+}
+
+.Column34
+{
+    display: table-cell;
+    width: 33%;
+}
+
+
+img {
+  border: 0;
+}
+
+/*button,
+input {
+  -webkit-appearance: none; 
+  cursor: pointer; 
+}*/
+
+hr {
+    border-width: 1px 0 0 0;
+    border-color: #767676;
+    border-style: solid;
+}
+
+/*typography*/
+h1, h2, h3, h4, h5, h6 {
+    line-height: normal;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    margin: .5em 0;
+}
+
+h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.25em;
+}
+
+h2 {
+    font-size: 1.875em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.125em
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: .875em;
+}
+
+/*template*/
+#wrapper .t-container-fluid {
+    max-width: 100%;
+}
+
+#wrapper .RadButton {
+    font-size: 1em;
+}
+
+#wrapper .RadMenu,
+div.RadMenuPopup,
+#wrapper .RadMenu_Default, #wrapper .RadMenu_Default a.rmLink  {
+    font-size: 1em;
+}
+
+input.twohundreds
+{
+    width: 200px;
+}
+
+.inputh 
+{
+    width: 22px;
+}
+
+span.CurrentMenu 
+{
+    font-size: 16px; 
+    color: darkblue; 
+    font-weight: bold;      
+    margin-left: 22px;
+}
+
+div.div49 
+{
+    width: 49%; 
+}

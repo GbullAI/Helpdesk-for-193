@@ -1,0 +1,192 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ServiceDesk3d.Site" %>
+
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ISMS</title>
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <link href="styles/base.css?version=1" rel="stylesheet" />
+    <%--<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />--%>
+    <%--<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" /> --%>   
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png" />    
+    <link rel="android-icon" type="image/png" sizes="36x36"  href="images/android-icon-36x36.png" />
+    <script  type='text/javascript'>
+        function PT_ViewPage(TargetURL) 
+        {
+           var myw = window.open(TargetURL, "", "width=999, height=999, status=yes, scrollbars=yes, resizable=yes");
+        }
+    </script>
+      <style>
+        .scrollDiv {
+            background-color: rgb(173,201,247);
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .scrollText {
+            font: normal 13px "Segoe UI", Arial, sans-serif;
+            color: black;
+        }
+
+        
+
+        .RadTabStrip_Bootstrap .rtsLevel1 .rtsSelected .rtsLink {
+            border-color: #dedede !important;
+            color: white !important;
+            background-color: #008CBA !important;
+        }
+
+        .RadTabStrip_Bootstrap .rtsLevel1 .rtsLink {
+            border-color: #dedede !important;
+            color: #000 !important;
+            background-color: white !important;
+        }
+
+        .BlueButton
+        {
+            background-color: #008CBA !important;
+            color: white !important;
+        }
+
+         .RedButton
+        {
+            background-color: #f44336 !important;
+            color: white !important;
+        }
+
+        .GreenButton
+        {
+            background-color: #4CAF50 !important;
+            color: white !important;
+        }
+
+          .GreyButton
+        {
+            background-color: #808080 !important;
+            color: white !important;
+        }
+
+         .PurpleButton
+        {
+            background-color: #6A0DAD !important;
+            color: white !important;
+        }
+          .BrownButton
+        {
+            background-color: brown !important;
+            color: white !important;
+        }
+          
+         .YellowButton
+        {
+            background-color: #ff9800 !important;
+            color: white !important;
+        }
+    </style>
+    <script type="text/javascript">  
+                var xPos, yPos, needScroll;
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+                prm.add_beginRequest(BeginRequestHandler);
+                prm.add_pageLoaded(EndRequestHandler)
+
+                function BeginRequestHandler(sender, args) {
+                    xPos = 0;
+                    yPos = window.pageYOffset || document.documentElement.scrollTop;
+                }
+
+                function EndRequestHandler(sender, args) {
+                    if (needScroll) {
+                        window.setTimeout("window.scrollTo(" + xPos + "," + yPos + ")", 100);
+                    }
+                }
+    </script>  
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1" AjaxFrameworkMode="Enabled"></telerik:RadScriptManager>           
+            <div class="divheader">
+                <table>
+                    <tr>
+                        <td style="text-align: center; width: 20%;">
+                            <img src="images/logo_jpph_top.png" width="230" />
+                        </td>
+                        <td style="text-align: left; width: 25%;">
+                            <div id="lblSystemNameSub" style="font-weight:bold; font-size:20px"><asp:Label ID="projecttitle" runat="server"></asp:Label></div>
+                        </td>
+                        <td style="text-align: left; width: 15%;">
+                            <asp:Label ID="lblCurrentMenu" runat="server" Text="CurrentMenu"></asp:Label></td>
+                          <td style="text-align: left; width: 20%;">
+                            <asp:UpdatePanel runat="server" ID="updAlert">
+                                <ContentTemplate>
+                                     <div id="alertPopup" style="background-color: lightgreen; border: 3px solid; border-radius: 5px; padding:10px; border-color: green; color: black">
+                                        <asp:Label ID="lblAlerts" runat="server" Text="No Alerts"></asp:Label>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        <asp:UpdatePanel runat="server" ID="updTimer">
+                            <ContentTemplate>
+                                <asp:Timer runat="server" ID="timerAlerts" Interval="3000" OnTick="timerAlerts_Tick" Enabled="true"></asp:Timer>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
+                        <td style="text-align: right; width: 20%;">
+                            <telerik:RadLabel runat="server" ID="lblUserName" Font-Bold="true" Font-Italic="true" ForeColor="White"></telerik:RadLabel>
+                            <br />
+                            <a href="Login.aspx" hidden="hidden" style="color:#ffffff;">Logout</a>
+                            <asp:LinkButton runat="server" style="color:#ffffff;" ID="lnkLogout" Text="Logout" OnClick="lnkLogout_Click"></asp:LinkButton>
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <td style="text-align: left; width: 20%; padding-left:4%">
+                            
+                        </td>
+                        <td style="text-align: left; width: 45%;">
+                            
+                        </td>
+                        <td style="text-align: left; width: 15%;">
+                            <div id="lblDT"></div>
+                        </td>
+                        <td style="text-align: right; width: 20%;"></td>
+                    </tr>-->
+                </table>
+            </div>         
+            <div class="divmenu">
+                <telerik:RadMenu ID="RadMenu3" runat="server" RenderMode="Auto" ClickToOpen="True" Width="100%" >
+                    <Items>                               
+                    </Items>
+                </telerik:RadMenu>
+            </div>        
+        <asp:UpdatePanel runat="server" ID="updAnnouncement" UpdateMode="Conditional">
+            <ContentTemplate>
+           <div runat="server" class="scrollDiv" id="scrollDiv">
+                       <marquee behavior="scroll" scrollamount="7" direction="left">
+                <label runat="server" id="lblScroll" class="scrollText"></label>
+            </marquee>
+        </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+            <div class="divcontent">
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <br />
+            <div class="divefooter">                
+            </div>
+        <div id="wrapper">
+            <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server">
+            </telerik:RadAjaxLoadingPanel>
+            <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                <asp:Timer ID="Xtimer" runat="server" Enabled="false" Interval="2222" OnTick="Xtimer_Tick"></asp:Timer>
+            </telerik:RadAjaxPanel>
+        </div>
+    </form>
+</body>
+</html>

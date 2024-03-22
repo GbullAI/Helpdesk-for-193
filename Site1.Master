@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ServiceDesk3d.Site1" %>
+
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ISMS</title>
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <link href="styles/base.css?version=1" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />    
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png" />    
+    <link rel="android-icon" type="image/png" sizes="36x36"  href="images/android-icon-36x36.png" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager runat="server" ID="RadScriptManager1"></telerik:RadScriptManager>           
+            <div class="divheader">                
+                <span class="CurrentMenu">
+                <asp:Label ID="lblCurrentMenu" runat="server" Text="CurrentMenu"></asp:Label>
+                </span> 
+            </div>            
+            <div class="divmenu">
+                <telerik:RadMenu ID="RadMenu3" runat="server" RenderMode="Auto" ClickToOpen="True" Width="100%" >
+                    <Items>                               
+                    </Items>
+                </telerik:RadMenu>
+            </div>        
+            <div class="divcontent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <br />
+            <div class="divefooter">                
+            </div>
+        <div id="wrapper">
+        </div>
+    </form>
+</body>
+</html>

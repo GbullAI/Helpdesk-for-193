@@ -1,0 +1,21 @@
+﻿
+html .RadInput .riTextBox  {
+    height: 23px ;
+}
+
+
+html .RadComboBox .rcbInput {
+    height: 23px ;
+}
+
+.RadComboBox_Outlook .rcbInputCell 
+{
+     height: 23px ;
+}
+
+
+#wrapper .header .RadMenu {
+    margin: 10px 0;
+    float: none;
+}
+
